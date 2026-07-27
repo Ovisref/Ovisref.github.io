@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ovis Daniel Irefu — Power Systems Engineer</title>
+<meta name="description" content="Ovis Daniel Irefu — Power Systems Engineer specializing in renewable energy integration, microgrids, and grid reliability. 10+ years utility distribution experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-dark:#0A3A28;
+    --green-dark-2:#0F4E35;
+    --paper:#F1F3F5;
+    --paper-2:#E5E9EC;
+    --ink:#101820;
+    --ink-soft:#4B5A68;
+    --accent:#F86A38;
+    --accent-light:#FF9A6E;
+    --green:#029456;
+    --line:#C7CDD3;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- Signature element: single-line-diagram rule ---------- */
+  .sld-rule{
+    display:flex; align-items:center; gap:0;
+    width:100%; height:14px; margin:6px 0 40px;
+  }
+  .sld-rule::before, .sld-rule::after{content:""; flex:1; height:2px; background:var(--line);}
+  .sld-rule .node{
+    width:8px; height:8px; border-radius:50%;
+    border:2px solid var(--accent); background:var(--paper);
+    margin:0 6px; flex:none;
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,58,40,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid #17573C;
+  }
+  .navwrap{
+    max-width:1040px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand-mark{
+    width:34px; height:34px; border:1.5px solid var(--accent-light); border-radius:4px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--accent-light); font-weight:700; font-size:13px; letter-spacing:0.02em;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  nav.links{display:flex; gap:22px; flex-wrap:wrap;}
+  nav.links a{
+    color:#AFCFC0; font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.03em; text-transform:uppercase; transition:color .15s;
+  }
+  nav.links a:hover{color:var(--accent-light);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--green-dark) 0%, var(--green-dark-2) 100%);
+    color:var(--white);
+    padding:72px 0 0;
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 79px, rgba(248,106,56,0.08) 79px 80px),
+      repeating-linear-gradient(90deg, transparent 0 79px, rgba(248,106,56,0.05) 79px 80px);
+    opacity:.6; pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2; padding-bottom:56px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--accent-light); margin-bottom:18px; display:block;
+  }
+  .hero h1{
+    font-size:44px; font-weight:700; line-height:1.16; max-width:740px; letter-spacing:-0.01em;
+  }
+  .hero p.lede{
+    margin-top:22px; font-size:16.5px; color:#CFE3D8; max-width:640px; font-weight:400;
+  }
+  .cred-row{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;
+  }
+  .cred{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.02em;
+    padding:7px 12px; border:1px solid #1E6A48; border-radius:3px; color:#B9D6C5;
+  }
+  .cred.highlight{border-color:var(--accent); color:var(--accent-light);}
+  .cta-row{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:12px 22px; font-size:14px; font-weight:600;
+    border-radius:3px; transition:all .15s;
+  }
+  .btn-primary{background:var(--accent); color:var(--green-dark);}
+  .btn-primary:hover{background:var(--accent-light);}
+  .btn-ghost{border:1px solid #1E6A48; color:var(--white);}
+  .btn-ghost:hover{border-color:var(--accent-light); color:var(--accent-light);}
+
+  /* ---------- Stats strip ---------- */
+  .stats-strip{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-top:1px solid #17573C;
+  }
+  .stat{
+    padding:26px 28px; border-right:1px solid #17573C;
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'IBM Plex Mono',monospace; font-size:26px; font-weight:600; color:var(--accent-light);}
+  .stat .lbl{font-size:12px; color:#9BC2AC; margin-top:4px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:72px 0;}
+  .section-label{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:10px; display:block;
+  }
+  h2.section-title{font-size:28px; font-weight:700; color:var(--ink); letter-spacing:-0.01em;}
+  footer .section-title{color:var(--white);}
+
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start;}
+  .about-grid p{color:var(--ink-soft); font-size:15.5px; margin-bottom:16px;}
+  .facts{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px;}
+  .facts dt{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-top:16px;}
+  .facts dt:first-child{margin-top:0;}
+  .facts dd{font-size:14.5px; font-weight:500; margin-top:3px;}
+
+  /* ---------- Timeline (experience) ---------- */
+  .timeline{position:relative; padding-left:34px;}
+  .timeline::before{content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line);}
+  .tl-item{position:relative; padding-bottom:40px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-34px; top:4px; width:14px; height:14px;
+    border-radius:50%; background:var(--paper); border:2.5px solid var(--accent);
+  }
+  .tl-role{font-size:17px; font-weight:700;}
+  .tl-org{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--green); margin-top:2px;}
+  .tl-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:4px;}
+  .tl-desc{margin-top:10px; color:var(--ink-soft); font-size:14.5px; max-width:660px;}
+  .tl-desc li{margin-left:18px; margin-top:5px;}
+
+  /* ---------- Cards (projects) ---------- */
+  .card-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:6px;
+    padding:26px; transition:transform .15s, box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(10,58,40,0.10);}
+  .card .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--accent); background:#FCEBE1; padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:12px;
+  }
+  .card h3{font-size:17px; font-weight:700; margin-bottom:8px;}
+  .card p{font-size:14px; color:var(--ink-soft); margin-bottom:14px;}
+  .card .stack{display:flex; flex-wrap:wrap; gap:6px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
+    border:1px solid var(--line); padding:4px 9px; border-radius:3px;
+  }
+
+  /* ---------- Publications ---------- */
+  .pub{border-bottom:1px solid var(--line); padding:18px 0;}
+  .pub:first-child{padding-top:0;}
+  .pub-status{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--green); background:#E3F3EA; padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:8px;
+  }
+  .pub-title{font-size:15px; font-weight:600;}
+  .pub-meta{font-size:13px; color:var(--ink-soft); margin-top:4px;}
+  .scholar-metrics{
+    display:flex; gap:22px; flex-wrap:wrap; margin-bottom:24px;
+    padding:16px 20px; background:var(--white); border:1px solid var(--line); border-radius:6px;
+  }
+  .scholar-metrics div{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink-soft);}
+  .scholar-metrics span{color:var(--accent); font-weight:600;}
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; align-items:start;}
+  .gallery-item{
+    background:var(--white); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  .gallery-item img{width:100%; height:230px; object-fit:cover; display:block;}
+  .gallery-cap{padding:14px 16px;}
+  .gallery-cap .g-title{font-size:13.5px; font-weight:600;}
+  .gallery-cap .g-desc{font-size:12.5px; color:var(--ink-soft); margin-top:3px;}
+
+  /* ---------- Skills ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:28px;}
+  .skill-group h4{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--accent); margin-bottom:14px;
+  }
+  .skill-group .chip{margin:0 6px 6px 0; display:inline-block;}
+
+  /* ---------- Certifications ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .cert-item{
+    background:var(--white); border:1px solid var(--line); border-radius:6px;
+    padding:16px 18px; display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  }
+  .cert-name{font-size:14px; font-weight:600;}
+  .cert-org{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+  .cert-id{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--accent); white-space:nowrap;}
+
+  /* ---------- Footer / Contact ---------- */
+  footer{
+    background:var(--green-dark); color:#B9D6C5; padding:64px 0 40px;
+  }
+  .contact-links{display:flex; flex-wrap:wrap; gap:16px; margin-top:26px;}
+  .contact-links a{
+    font-family:'IBM Plex Mono',monospace; font-size:13.5px; padding:11px 18px;
+    border:1px solid #1E6A48; border-radius:3px; color:#DCEEE3; transition:all .15s;
+  }
+  .contact-links a:hover{border-color:var(--accent-light); color:var(--accent-light);}
+  .fine{margin-top:56px; font-size:12px; color:#5E9077; font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px){
+    nav.links{display:none;}
+    .hero h1{font-size:32px;}
+    .about-grid, .card-grid, .cert-grid, .gallery-grid{grid-template-columns:1fr;}
+    .about-grid{gap:32px;}
+    .stats-strip{grid-template-columns:repeat(2,1fr);}
+    .stat{border-bottom:1px solid #17573C;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="navwrap">
+    <div class="brand-mark">OI</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Power Systems Engineer — Renewable Energy &amp; Grid Reliability</span>
+    <h1>Ovis Daniel Irefu</h1>
+    <p class="lede">Power Systems Engineer with a decade of utility distribution experience across substation operations, revenue protection, and renewable integration — now completing a PhD in Electrical Engineering (Power Systems) at the University of North Texas, combining hands-on field leadership with peer-reviewed research in microgrid reliability and forecasting.</p>
+    <div class="cred-row">
+      <span class="cred">PhD Candidate, EE (Power Systems) — Exp. Dec 2026</span>
+      <span class="cred">IEEE Graduate Member — PES</span>
+      <span class="cred">COREN Registered Engineer</span>
+      <span class="cred highlight">Authorized to work in the U.S. — no sponsorship required</span>
+    </div>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="mailto:ovisirefu@my.unt.edu" class="btn btn-ghost">Email Me</a>
+    </div>
+  </div>
+  <div class="stats-strip wrap" style="padding-left:0; padding-right:0; max-width:1040px; margin:0 auto;">
+    <div class="stat"><div class="num">$1.5M+</div><div class="lbl">Energy losses recovered</div></div>
+    <div class="stat"><div class="num">17+</div><div class="lbl">Substations managed</div></div>
+    <div class="stat"><div class="num">10+</div><div class="lbl">Years utility experience</div></div>
+    <div class="stat"><div class="num">14+</div><div class="lbl">Peer-reviewed publications</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <span class="section-label">01 / About</span>
+    <h2 class="section-title">Summary</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a Power Systems Engineer with 10+ years of progressive experience spanning utility distribution operations, renewable energy integration, microgrid design, and revenue analytics. Across my career I've recovered over $1.5M in energy losses, improved grid reliability across 17+ substations, and designed and commissioned a hybrid PV–wind–CSP microgrid testbed.</p>
+        <p>I'm a PhD candidate (expected December 2026) at the University of North Texas, combining hands-on utility field leadership with peer-reviewed research in reliability analysis and renewable energy forecasting. My dissertation focuses on the design, implementation, and analysis of a multi-source renewable microgrid with hybrid energy storage for enhanced resilience, advised by Dr. Miguel F. Acevedo, Regents Professor.</p>
+        <p>I'm proficient in MATLAB/Simulink, Python, and PSCAD/ETAP (in active development), and I'm now looking for full-time opportunities in power systems engineering, grid reliability, or data center electrical infrastructure.</p>
+      </div>
+      <dl class="facts">
+        <dt>Location</dt><dd>Denton, TX</dd>
+        <dt>Degree</dt><dd>PhD, Electrical Engineering — Power Systems<br><span class="mono" style="font-weight:400;color:var(--ink-soft);">University of North Texas · Aug 2022 – Exp. Dec 2026</span></dd>
+        <dt>Prior Experience</dt><dd>10+ years, Utility Distribution Engineering (AEDC &amp; BEDC, Nigeria)</dd>
+        <dt>Certifications</dt><dd>COREN Registered Engineer — No. R49842</dd>
+        <dt>Memberships</dt><dd>IEEE Graduate Member (PES), NSBE, NSE, Phi Kappa Phi</dd>
+        <dt>Core Tools</dt><dd>MATLAB/Simulink, Python, PowerWorld, PSCAD &amp; ETAP (in development)</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--paper-2);">
+  <div class="wrap">
+    <span class="section-label">02 / Experience</span>
+    <h2 class="section-title">Career Timeline</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-role">Graduate Research &amp; Teaching Assistant</div>
+        <div class="tl-org">University of North Texas — Dept. of Electrical Engineering, Denton, TX</div>
+        <div class="tl-date">Aug 2022 – Present</div>
+        <ul class="tl-desc">
+          <li>Designed and implemented a Node-RED-based supervisory monitoring/control architecture for a tri-source off-grid hybrid microgrid (solar PV, wind, CSP-TEG) on a 24V DC bus</li>
+          <li>Designed, installed, and commissioned a 4.5kW dual solar PV + 1kW wind turbine microgrid at UNT Discovery Park, cutting diesel fuel costs by 60%</li>
+          <li>Engineered a 5kW battery-less PV–wind off-grid microgrid achieving 95% energy reliability</li>
+          <li>Developed and delivered EENG 2920 (Analog &amp; Digital Circuit Design) lab curricula, improving student project success rates by 15%</li>
+          <li>Co-authored 14+ peer-reviewed publications on renewable energy systems and microgrid reliability</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Technical Specialist Supervisor</div>
+        <div class="tl-org">Abuja Electricity Distribution Plc (AEDC), Nigeria</div>
+        <div class="tl-date">Mar 2022 – Aug 2022</div>
+        <ul class="tl-desc">
+          <li>Recovered 1.2 MWh in energy theft losses within one month, surpassing 92% of quarterly revenue targets</li>
+          <li>Diagnosed high-loss feeders and streamlined preventive maintenance across 17 substations, reducing unplanned downtime by 20% and improving grid reliability to 93.8%</li>
+          <li>Supervised operation and maintenance of 33kV/11kV switchgear, automatic transfer switches, and feeder protection relays</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Supervisor, Revenue Protection Analyst</div>
+        <div class="tl-org">Abuja Electricity Distribution Plc (AEDC), Nigeria</div>
+        <div class="tl-date">Sep 2019 – Mar 2022</div>
+        <ul class="tl-desc">
+          <li>Reduced ATC&amp;C losses 12% (30%→18%) across 5 districts through data-driven audits and network inspections, recovering $926K in FY2020 alone</li>
+          <li>Designed and deployed real-time monitoring dashboards for energy theft detection, improving recovery rates 16% per month across 4 regions</li>
+          <li>Automated meter audit workflows for 10,000+ customers, improving billing accuracy by 10%</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Energy Data Analyst</div>
+        <div class="tl-org">Benin Electricity Distribution Plc (BEDC), Nigeria</div>
+        <div class="tl-date">Nov 2016 – Sep 2019</div>
+        <ul class="tl-desc">
+          <li>Reduced ATC&amp;C losses 10.25% (28%→17.75%) in Etete Business District, saving $465K over 6 months</li>
+          <li>Developed Power BI billing dashboards that increased collection efficiency by 15%</li>
+          <li>Automated Excel-based reporting systems, cutting data processing time by 30%</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-role">Graduate Trainee</div>
+        <div class="tl-org">Benin Electricity Distribution Plc (BEDC), Nigeria</div>
+        <div class="tl-date">Sep 2015 – Oct 2016</div>
+        <ul class="tl-desc">
+          <li>Contributed to LV distribution network layout designs and infrastructure upgrades, improving service reliability by 25% for 25,000+ customers</li>
+          <li>Led customer enumeration and asset tagging for 5,000+ meters, achieving 98% inventory accuracy</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <span class="section-label">03 / Research</span>
+    <h2 class="section-title">Publications &amp; Conference Work</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+
+    <div class="scholar-metrics">
+      <div><span>28</span> citations</div>
+      <div><span>4</span> h-index</div>
+      <div><span>4</span> i10-index</div>
+    </div>
+
+    <div class="pub">
+      <span class="pub-status">2026</span>
+      <div class="pub-title">A Sequence-to-Sequence Deep Learning Model for Solar Power Forecasting in a Microgrid Using Operational Data</div>
+      <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2026</span>
+      <div class="pub-title">Reliability Assessment of a Hybrid PV–WT Microgrid Systems for Enhanced Resilience</div>
+      <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2026</span>
+      <div class="pub-title">IoT-Based Real-Time Monitoring of Remote PV-WT Hybrid Microgrid in Denton, Texas</div>
+      <div class="pub-meta">G. Ebiega, O. Irefu, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2026</span>
+      <div class="pub-title">Experimental Evaluation and Analysis of the Impacts of Soiling on Polar-Mounted Photovoltaic (PV) Systems in Denton, Texas</div>
+      <div class="pub-meta">G. Ebiega, O. Irefu, B. Smithers, M.F. Acevedo — 2026 IEEE Texas Power and Energy Conference (TPEC)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2025 · 1 citation</span>
+      <div class="pub-title">Reliability Analysis of a Dual Photovoltaic (PV) Microgrid: A Case Study on Renewable Power Sharing and Unplanned Outages</div>
+      <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2025 IEEE 18th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2024 · 10 citations</span>
+      <div class="pub-title">Design and Techno-Economic Evaluation of a Hybrid Mini-grid System for an Academic Institution</div>
+      <div class="pub-meta">M.T.Z. Zarmai, I. Alabi, O.D. Irefu, et al. — Journal of Energy and Power Technology, 6(2), 1–23</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2024 · 6 citations</span>
+      <div class="pub-title">Development of a PID-Controlled Refrigeration System for Reduced Power Consumption</div>
+      <div class="pub-meta">S.J.F.L.O. Agidike, G.I. Ebiega, O. Irefu — World Journal of Advanced Research and Reviews, 24(1), 2435–2449</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2024</span>
+      <div class="pub-title">Hybrid Renewable/Grid Power Systems, an Essential for Base Transceiver Station Penetration in Rural Nigeria</div>
+      <div class="pub-meta">G.I. Ebiega, T.M. Dugeri, O.D. Irefu — International Journal of Power Electronics and Drive Systems (IJPEDS), 15(2)</div>
+    </div>
+
+    <p style="margin-top:20px; font-size:13.5px; color:var(--ink-soft);">
+      + 6 additional peer-reviewed publications, including work on hydrogen production nanomaterials, model predictive control, and electric-drive harmonic mitigation. Full list on <a href="https://scholar.google.com/citations?user=VGdN7h0AAAAJ&hl=en&oi=ao" style="color:var(--green); text-decoration:underline;" target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+  </div>
+</section>
+
+<section id="projects" style="background:var(--paper-2);">
+  <div class="wrap">
+    <span class="section-label">04 / Projects</span>
+    <h2 class="section-title">Featured Work</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag">Dissertation</span>
+        <h3>UNT Discovery Park Hybrid Microgrid</h3>
+        <p>Designed, installed, and commissioned a 4.5kW dual solar PV + 1kW wind + CSP-TEG microgrid on a 24V DC bus. Modeled battery-less off-grid architecture achieving 95% energy reliability; identified CSP-hydrogen hybrid as the optimal enhancement pathway, now part of UNT's active research roadmap.</p>
+        <div class="stack">
+          <span class="chip">MATLAB/Simulink</span><span class="chip">Reliability Modeling (LPSP, LOLE)</span><span class="chip">MPPT Design</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Machine Learning</span>
+        <h3>Seq2Seq Solar Power Forecasting</h3>
+        <p>Sequence-to-sequence deep learning model for short-horizon solar power forecasting using operational microgrid data, presented at IEEE DCAS 2026.</p>
+        <div class="stack">
+          <span class="chip">Python</span><span class="chip">LSTM / Seq2Seq</span><span class="chip">Time Series</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Monitoring &amp; Controls</span>
+        <h3>Node-RED Supervisory Control Architecture</h3>
+        <p>Hardware-software integrated testbed combining embedded sensors, power electronics, and an IoT-enabled dashboard to demonstrate autonomous load management and energy-flow optimization in an islanded microgrid.</p>
+        <div class="stack">
+          <span class="chip">Node-RED</span><span class="chip">IoT</span><span class="chip">Embedded Sensors</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">M.Eng. Thesis</span>
+        <h3>Hybrid PV-Wind-Grid BTS Power Supply</h3>
+        <p>Designed an uninterrupted 2kW DC power supply combining solar PV, wind, and grid sources for telecom base transceiver stations, achieving 95.9% uptime and high renewable energy penetration.</p>
+        <div class="stack">
+          <span class="chip">Power Electronics</span><span class="chip">Renewable Integration</span><span class="chip">Telecom Power</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <span class="section-label">05 / Gallery</span>
+    <h2 class="section-title">Field Work &amp; Testbed</h2>
+    <p class="section-sub" style="margin-bottom:20px;">A selection of photos from ongoing testbed development and field installations — illustrative of the kind of research and setup involved, not a complete record.</p>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="testbed-wind-turbine.jpg" alt="1kW wind turbine tower at UNT Discovery Park" style="height:360px; object-fit:contain; background:var(--paper-2);">
+        <div class="gallery-cap">
+          <div class="g-title">Wind Turbine — UNT Discovery Park</div>
+          <div class="g-desc">Tower-mounted wind turbine, part of the tri-source hybrid microgrid testbed.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="testbed-PV-CSP.jpg" alt="Dual solar PV array and parabolic CSP concentrator">
+        <div class="gallery-cap">
+          <div class="g-title">Dual Solar PV Array + CSP Concentrator</div>
+          <div class="g-desc">Dual PV array alongside the parabolic CSP-TEG concentrator testbed.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="testbed-control-room.jpg" alt="MPPT and charge controller bank">
+        <div class="gallery-cap">
+          <div class="g-title">MPPT &amp; Charge Controller Bank</div>
+          <div class="g-desc">TriStar and Victron SmartSolar MPPT controllers with wind-solar-hydro diversion control and monitoring.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="testbed-control-PLC.jpg" alt="PLC and data acquisition enclosure">
+        <div class="gallery-cap">
+          <div class="g-title">PLC &amp; Data Acquisition Enclosure</div>
+          <div class="g-desc">Programmable logic controller and wiring for real-time sensor logging and control development.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="testbed-electronics-components.jpg" alt="Electronics and instrumentation bench">
+        <div class="gallery-cap">
+          <div class="g-title">Electronics &amp; Instrumentation Bench</div>
+          <div class="g-desc">Oscilloscope, DAQ, and bench instrumentation used for testbed measurement and calibration.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="testbed-control-panel-2.jpg" alt="Full power electronics and battery storage bank">
+        <div class="gallery-cap">
+          <div class="g-title">Power Electronics &amp; Battery Storage Bank</div>
+          <div class="g-desc">Complete charge controller, inverter, and battery bank supporting the microgrid testbed.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--paper-2);">
+  <div class="wrap">
+    <span class="section-label">06 / Skills</span>
+    <h2 class="section-title">Technical &amp; Research Competencies</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h4>Power Systems &amp; Grid</h4>
+        <span class="chip">Power Distribution</span>
+        <span class="chip">Load Flow Analysis</span>
+        <span class="chip">Fault Analysis</span>
+        <span class="chip">Substation Operations</span>
+        <span class="chip">ATC&amp;C Loss Reduction</span>
+      </div>
+      <div class="skill-group">
+        <h4>Renewable Energy</h4>
+        <span class="chip">Solar PV Design &amp; Optimization</span>
+        <span class="chip">Wind Energy Systems</span>
+        <span class="chip">Battery-less Off-Grid Systems</span>
+        <span class="chip">Energy Storage (BESS)</span>
+        <span class="chip">CSP-Thermoelectric Systems</span>
+      </div>
+      <div class="skill-group">
+        <h4>Analysis &amp; Reliability</h4>
+        <span class="chip">Reliability Assessment (LPSP, LOLE, ASAI)</span>
+        <span class="chip">Energy Forecasting</span>
+        <span class="chip">Predictive Analytics</span>
+        <span class="chip">Feasibility Studies</span>
+        <span class="chip">Revenue Protection Analysis</span>
+      </div>
+      <div class="skill-group">
+        <h4>Software &amp; Tools</h4>
+        <span class="chip">MATLAB/Simulink</span>
+        <span class="chip">Python</span>
+        <span class="chip">Multisim</span>
+        <span class="chip">Arduino</span>
+        <span class="chip">Advanced Excel</span>
+        <span class="chip">ETAP (in development)</span>
+      </div>
+      <div class="skill-group">
+        <h4>Leadership &amp; Soft Skills</h4>
+        <span class="chip">Technical Writing</span>
+        <span class="chip">Field Operations Supervision</span>
+        <span class="chip">Data-Driven Decision Making</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <span class="section-label">07 / Credentials</span>
+    <h2 class="section-title">Certifications &amp; Affiliations</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <div><div class="cert-name">Graduate Member</div><div class="cert-org">IEEE — Power &amp; Energy Society</div></div>
+        <div class="cert-id">No. 99442518</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Registered Engineer</div><div class="cert-org">Council for the Regulation of Engineering in Nigeria (COREN)</div></div>
+        <div class="cert-id">No. R49842</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Corporate Member</div><div class="cert-org">Nigerian Society of Engineers (NSE)</div></div>
+        <div class="cert-id">No. 47883</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Member</div><div class="cert-org">National Society of Black Engineers (NSBE)</div></div>
+        <div class="cert-id">No. 473505</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Member</div><div class="cert-org">The Honor Society of Phi Kappa Phi</div></div>
+        <div class="cert-id">Apr 2023</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Junior Management Course</div><div class="cert-org">Vigeo Power Training Institute</div></div>
+        <div class="cert-id">Oct 2016</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Instrumentation &amp; Control (Pneumatics)</div><div class="cert-org">Petroleum Training Institute, Nigeria</div></div>
+        <div class="cert-id">Feb 2015</div>
+      </div>
+      <div class="cert-item">
+        <div><div class="cert-name">Health, Safety &amp; Environment (HSE II &amp; III)</div><div class="cert-org">Institute of Safety Professionals of Nigeria</div></div>
+        <div class="cert-id">Jun 2014</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:56px;">Education</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-role">Ph.D., Electrical Engineering (Power Systems)</div>
+        <div class="tl-org">University of North Texas, Denton, TX · GPA 3.86/4.00</div>
+        <div class="tl-date">Aug 2022 – Expected Dec 2026</div>
+        <ul class="tl-desc">
+          <li>Dissertation: Design, Implementation &amp; Analysis of a Multi-Source Renewable Microgrid with Hybrid Energy Storage for Enhanced Resilience</li>
+          <li>Advisor: Dr. Miguel F. Acevedo, Regents Professor</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">M.Eng., Power Systems and Machines</div>
+        <div class="tl-org">University of Benin, Edo State, Nigeria · GPA 3.90/5.00</div>
+        <div class="tl-date">Apr 2016 – Nov 2019</div>
+        <ul class="tl-desc">
+          <li>Thesis: Hybrid PV-Wind-Grid Uninterrupted 2kW DC Power Supply for Telecom Base Transceiver Stations — 95.9% uptime and renewable energy penetration</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">B.Eng., Electrical &amp; Computer Engineering</div>
+        <div class="tl-org">Federal University of Technology, Minna, Nigeria · Second Class Upper</div>
+        <div class="tl-date">Nov 2008 – Apr 2014</div>
+        <ul class="tl-desc">
+          <li>Project: Automatic Wattage Meter Using GSM Network for Remote Electricity Billing — reduced non-technical losses by 15%</li>
+          <li>Six-month Student Industrial Work Experience (SIWES) — Medi-Tronics Limited, Kaduna</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="section-label" style="color:var(--accent-light);">08 / Contact</span>
+    <h2 class="section-title">Let's connect</h2>
+    <p style="max-width:560px; margin-top:14px; color:#B9D6C5; font-size:15px;">
+      Open to full-time roles in power systems engineering, grid reliability, and data center electrical infrastructure. Authorized to work in the U.S. without sponsorship and open to relocation.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:ovisirefu@my.unt.edu">Email</a>
+      <a href="tel:+12144681382">+1 (214) 468-1382</a>
+      <a href="https://www.linkedin.com/in/ovis-irefu-1a438166" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Ovisref" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=VGdN7h0AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Ovis-Irefu?ev=hdr_xprf" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=58995775000" target="_blank" rel="noopener">Scopus</a>
+    </div>
+    <div class="fine">© <span id="year"></span> Ovis Daniel Irefu — Built with GitHub Pages</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
