@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ovis Daniel Irefu — Electrical Engineer, Power Systems</title>
+<meta name="description" content="Portfolio of Ovis Daniel Irefu — Electrical Engineer specializing in power systems, microgrids, and grid reliability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1D2E;
+    --navy-2:#16283D;
+    --paper:#F1F3F5;
+    --paper-2:#E5E9EC;
+    --ink:#101820;
+    --ink-soft:#4B5A68;
+    --copper:#C1793B;
+    --copper-light:#E0A868;
+    --teal:#2C7A7B;
+    --line:#C7CDD3;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- Signature element: single-line-diagram rule ---------- */
+  .sld-rule{
+    display:flex; align-items:center; gap:0;
+    width:100%; height:14px; margin:6px 0 40px;
+  }
+  .sld-rule::before, .sld-rule::after{content:""; flex:1; height:2px; background:var(--line);}
+  .sld-rule .node{
+    width:8px; height:8px; border-radius:50%;
+    border:2px solid var(--copper); background:var(--paper);
+    margin:0 6px; flex:none;
+  }
+  .sld-rule.dark::before, .sld-rule.dark::after{background:#2A3B4E;}
+  .sld-rule.dark .node{background:var(--navy); border-color:var(--copper-light);}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,29,46,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid #24384f;
+  }
+  .navwrap{
+    max-width:1040px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{color:var(--white); font-weight:600; font-size:16px; letter-spacing:0.02em;}
+  .brand .dot{color:var(--copper-light);}
+  nav.links{display:flex; gap:28px;}
+  nav.links a{
+    color:#B9C4CE; font-size:13px; font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.03em; text-transform:uppercase; transition:color .15s;
+  }
+  nav.links a:hover{color:var(--copper-light);}
+  .navtoggle{display:none; background:none; border:none; color:#fff; font-size:22px; cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:var(--white);
+    padding:88px 0 96px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 79px, rgba(193,121,59,0.07) 79px 80px),
+      repeating-linear-gradient(90deg, transparent 0 79px, rgba(193,121,59,0.05) 79px 80px);
+    opacity:.6; pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--copper-light); margin-bottom:18px; display:block;
+  }
+  .hero h1{
+    font-size:44px; font-weight:700; line-height:1.15; max-width:720px; letter-spacing:-0.01em;
+  }
+  .hero h1 span{color:var(--copper-light);}
+  .hero p.lede{
+    margin-top:20px; font-size:17px; color:#C6D0D8; max-width:600px; font-weight:400;
+  }
+  .cred-row{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;
+  }
+  .cred{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.02em;
+    padding:7px 12px; border:1px solid #2E4560; border-radius:3px; color:#AEBBC6;
+  }
+  .cta-row{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:12px 22px; font-size:14px; font-weight:600;
+    border-radius:3px; transition:all .15s;
+  }
+  .btn-primary{background:var(--copper); color:var(--navy);}
+  .btn-primary:hover{background:var(--copper-light);}
+  .btn-ghost{border:1px solid #3A506A; color:var(--white);}
+  .btn-ghost:hover{border-color:var(--copper-light); color:var(--copper-light);}
+
+  /* ---------- Sections ---------- */
+  section{padding:72px 0;}
+  .section-label{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--copper); margin-bottom:10px; display:block;
+  }
+  h2.section-title{font-size:28px; font-weight:700; color:var(--ink); letter-spacing:-0.01em;}
+
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:56px; align-items:start;}
+  .about-grid p{color:var(--ink-soft); font-size:15.5px; margin-bottom:16px;}
+  .facts{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px;}
+  .facts dt{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-top:16px;}
+  .facts dt:first-child{margin-top:0;}
+  .facts dd{font-size:14.5px; font-weight:500; margin-top:3px;}
+
+  /* ---------- Timeline (experience) ---------- */
+  .timeline{position:relative; padding-left:34px;}
+  .timeline::before{content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--line);}
+  .tl-item{position:relative; padding-bottom:40px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-34px; top:4px; width:14px; height:14px;
+    border-radius:50%; background:var(--paper); border:2.5px solid var(--copper);
+  }
+  .tl-role{font-size:17px; font-weight:700;}
+  .tl-org{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--teal); margin-top:2px;}
+  .tl-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:4px;}
+  .tl-desc{margin-top:10px; color:var(--ink-soft); font-size:14.5px; max-width:640px;}
+  .tl-desc li{margin-left:18px; margin-top:4px;}
+
+  /* ---------- Cards (projects) ---------- */
+  .card-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
+  .card{
+    background:var(--white); border:1px solid var(--line); border-radius:6px;
+    padding:26px; transition:transform .15s, box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(15,29,46,0.08);}
+  .card .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--copper); background:#FBF0E4; padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:12px;
+  }
+  .card h3{font-size:17px; font-weight:700; margin-bottom:8px;}
+  .card p{font-size:14px; color:var(--ink-soft); margin-bottom:14px;}
+  .card .stack{display:flex; flex-wrap:wrap; gap:6px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
+    border:1px solid var(--line); padding:4px 9px; border-radius:3px;
+  }
+
+  /* ---------- Publications ---------- */
+  .pub{border-bottom:1px solid var(--line); padding:18px 0;}
+  .pub:first-child{padding-top:0;}
+  .pub-status{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--teal); background:#E7F3F3; padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:8px;
+  }
+  .pub-title{font-size:15.5px; font-weight:600;}
+  .pub-meta{font-size:13px; color:var(--ink-soft); margin-top:4px;}
+
+  /* ---------- Skills ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  .skill-group h4{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--copper); margin-bottom:14px;
+  }
+  .skill-group .chip{margin:0 6px 6px 0; display:inline-block;}
+
+  /* ---------- Footer / Contact ---------- */
+  footer{
+    background:var(--navy); color:#B9C4CE; padding:64px 0 40px;
+  }
+  footer h2{color:var(--white);}
+  .contact-links{display:flex; flex-wrap:wrap; gap:16px; margin-top:26px;}
+  .contact-links a{
+    font-family:'IBM Plex Mono',monospace; font-size:13.5px; padding:11px 18px;
+    border:1px solid #2E4560; border-radius:3px; color:#DCE4EA; transition:all .15s;
+  }
+  .contact-links a:hover{border-color:var(--copper-light); color:var(--copper-light);}
+  .fine{margin-top:56px; font-size:12px; color:#5E7186; font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px){
+    nav.links{display:none;}
+    .navtoggle{display:block;}
+    .hero h1{font-size:32px;}
+    .about-grid, .card-grid, .skill-groups{grid-template-columns:1fr;}
+    .about-grid{gap:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="navwrap">
+    <div class="brand">OVIS IREFU<span class="dot">.</span></div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Electrical Engineer — Power Systems</span>
+    <h1>Ovis Daniel Irefu<br><span>Grid reliability, microgrids & renewable integration.</span></h1>
+    <p class="lede">PhD Candidate in Electrical Engineering (Power Systems) building hybrid renewable microgrids and reliability models — with 10+ years of prior utility distribution engineering experience. Currently pursuing full-time roles in power systems and data center electrical engineering.</p>
+    <div class="cred-row">
+      <span class="cred">IEEE Graduate Member — PES</span>
+      <span class="cred">COREN Registered Engineer</span>
+      <span class="cred">PhD Candidate, EE (Power Systems)</span>
+    </div>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="mailto:youremail@example.com" class="btn btn-ghost">Download CV (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <span class="section-label">01 / About</span>
+    <h2 class="section-title">Summary</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm an Electrical Engineer specializing in power systems, currently completing a PhD at the University of North Texas focused on tri-source hybrid microgrid design and reliability (ASAI, LOLE, LPSP, ENS metrics), with applied research spanning solar/wind/thermoelectric generation, MATLAB/Simulink modeling, and machine-learning-based irradiance forecasting.</p>
+        <p>Before returning to graduate study, I spent 10+ years as a utility distribution engineer in Nigeria, working on ATC&C loss reduction, substation reliability, and SAIDI/SAIFI performance — experience that grounds my current research in the operational realities of grid infrastructure.</p>
+        <p>I'm now looking for full-time opportunities in power systems engineering, grid reliability, or data center electrical infrastructure, where I can bring both hands-on utility experience and advanced simulation/modeling capability.</p>
+      </div>
+      <dl class="facts">
+        <dt>Location</dt><dd>Denton, TX</dd>
+        <dt>Degree</dt><dd>PhD, Electrical Engineering — Power Systems<br><span class="mono" style="font-weight:400;color:var(--ink-soft);">University of North Texas · Exp. Dec 2026</span></dd>
+        <dt>Prior Experience</dt><dd>10+ years, Utility Distribution Engineering</dd>
+        <dt>Certifications</dt><dd>COREN Registered Engineer</dd>
+        <dt>Memberships</dt><dd>IEEE Graduate Member, Power &amp; Energy Society</dd>
+        <dt>Core Tools</dt><dd>MATLAB/Simulink, PSCAD, PowerWorld, Python</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--paper-2);">
+  <div class="wrap">
+    <span class="section-label">02 / Experience</span>
+    <h2 class="section-title">Career Timeline</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-role">Graduate Teaching Assistant — Analog &amp; Digital Circuit Design (EENG 2920)</div>
+        <div class="tl-org">University of North Texas, Denton, TX</div>
+        <div class="tl-date">[Start date] – Present</div>
+        <ul class="tl-desc">
+          <li>Lead lab sections and support instruction for undergraduate circuit design coursework</li>
+          <li>Mentor students on circuit analysis, PCB fundamentals, and lab safety practice</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">PhD Candidate, Electrical Engineering (Power Systems)</div>
+        <div class="tl-org">University of North Texas — Discovery Park</div>
+        <div class="tl-date">[Start date] – Expected Dec 2026</div>
+        <ul class="tl-desc">
+          <li>Design and reliability modeling of a tri-source hybrid microgrid (PV, wind, CSP-TEG) on a 24V DC bus</li>
+          <li>Developed a Seq2Seq LSTM solar irradiance forecasting model with cross-validation and nighttime masking</li>
+          <li>Research supported under NSF-funded infrastructure program at UNT Discovery Park</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">Distribution Engineer</div>
+        <div class="tl-org">AEDC / BEDC, Nigeria</div>
+        <div class="tl-date">10+ years</div>
+        <ul class="tl-desc">
+          <li>Led ATC&amp;C loss reduction initiatives across distribution networks</li>
+          <li>Managed substation reliability programs and SAIDI/SAIFI performance improvement</li>
+          <li>Applied energy analytics to prioritize network investment and maintenance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <span class="section-label">03 / Research</span>
+    <h2 class="section-title">Publications &amp; Conference Work</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+
+    <div class="pub">
+      <span class="pub-status">Submitted</span>
+      <div class="pub-title">Seq2Seq LSTM Solar Irradiance Forecasting with LOBO Cross-Validation and Nighttime Masking</div>
+      <div class="pub-meta">Submitted to DCAS 2026 · Target journal: IEEE Transactions on Sustainable Energy</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">Accept, Minor Revisions</span>
+      <div class="pub-title">HOMER-Based Microgrid Design for Rural Electrification — Case Study</div>
+      <div class="pub-meta">Peer-reviewed journal submission</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">[Status]</span>
+      <div class="pub-title">Battery-less Off-Grid Renewable Energy Systems — A Review</div>
+      <div class="pub-meta">[Journal name] · [Year]</div>
+    </div>
+
+    <p style="margin-top:20px; font-size:13.5px; color:var(--ink-soft);">
+      Full publication list and citations available on <a href="#" style="color:var(--teal); text-decoration:underline;">Google Scholar</a>.
+    </p>
+  </div>
+</section>
+
+<section id="projects" style="background:var(--paper-2);">
+  <div class="wrap">
+    <span class="section-label">04 / Projects</span>
+    <h2 class="section-title">Featured Work</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="tag">Dissertation</span>
+        <h3>Tri-Source Hybrid Microgrid Testbed</h3>
+        <p>PV, wind, and concentrated-solar thermoelectric (CSP-TEG) generation integrated on a 24V DC bus, with full reliability modeling (ASAI, LOLE, LPSP, ENS) in MATLAB/Simulink.</p>
+        <div class="stack">
+          <span class="chip">MATLAB/Simulink</span><span class="chip">MPPT Design</span><span class="chip">Reliability Modeling</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Machine Learning</span>
+        <h3>Solar Irradiance Forecasting</h3>
+        <p>Seq2Seq LSTM model for short-horizon solar irradiance forecasting, with leave-one-block-out cross-validation and nighttime masking to improve robustness.</p>
+        <div class="stack">
+          <span class="chip">Python</span><span class="chip">LSTM</span><span class="chip">Time Series</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Hardware / Embedded</span>
+        <h3>CSP-TEG Thermal Data Logging</h3>
+        <p>ESP32-based sensor array (thermocouples, DS18B20) streaming to InfluxDB/Node-RED for real-time thermal characterization of a thermoelectric generator testbed.</p>
+        <div class="stack">
+          <span class="chip">ESP32</span><span class="chip">InfluxDB</span><span class="chip">Node-RED</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Workshop</span>
+        <h3>IoT for Power Systems — NodeMCU ESP8266</h3>
+        <p>Designed and delivered a hands-on workshop on IoT-based monitoring using NodeMCU ESP8266, including full presentation materials and live Q&amp;A support.</p>
+        <div class="stack">
+          <span class="chip">NodeMCU</span><span class="chip">IoT</span><span class="chip">Teaching</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <span class="section-label">05 / Skills</span>
+    <h2 class="section-title">Technical Toolkit</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h4>Simulation &amp; Analysis</h4>
+        <span class="chip">MATLAB/Simulink</span>
+        <span class="chip">PSCAD</span>
+        <span class="chip">PowerWorld</span>
+        <span class="chip">ETAP</span>
+        <span class="chip">HOMER</span>
+      </div>
+      <div class="skill-group">
+        <h4>Programming</h4>
+        <span class="chip">Python</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">C (embedded)</span>
+      </div>
+      <div class="skill-group">
+        <h4>Power Systems</h4>
+        <span class="chip">Grid Reliability</span>
+        <span class="chip">Distribution Engineering</span>
+        <span class="chip">Microgrid Design</span>
+        <span class="chip">SAIDI/SAIFI Analysis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <span class="section-label" style="color:var(--copper-light);">06 / Contact</span>
+    <h2 class="section-title">Let's connect</h2>
+    <p style="max-width:520px; margin-top:14px; color:#B9C4CE; font-size:15px;">
+      Open to full-time roles in power systems engineering, grid reliability, and data center electrical infrastructure. Reach out directly or connect below.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:youremail@example.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Google Scholar</a>
+    </div>
+    <div class="fine">© <span id="year"></span> Ovis Daniel Irefu — Built with GitHub Pages</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
