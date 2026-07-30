@@ -208,16 +208,6 @@
   .facts dt{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
   .facts dd{font-size:14.5px; font-weight:500; margin-top:4px;}
 
-  /* ---------- Numbered decisions ---------- */
-  .decisions{margin-top:26px; list-style:none; counter-reset:d;}
-  .decisions li{position:relative; padding-left:44px; margin-bottom:20px; max-width:68ch; color:var(--ink-soft); font-size:15.5px;}
-  .decisions li::before{
-    counter-increment:d; content:counter(d,decimal-leading-zero);
-    position:absolute; left:0; top:2px; font-family:'IBM Plex Mono',monospace; font-size:11px;
-    color:var(--accent); background:#FCEBE1; padding:3px 8px; border-radius:3px;
-  }
-  .decisions strong{color:var(--ink); font-weight:600;}
-
   /* ---------- Publications ---------- */
   .pub{border-bottom:1px solid var(--line); padding:18px 0;}
   .pub:first-of-type{padding-top:0;}
@@ -264,7 +254,7 @@
 
 <header class="nav">
   <div class="navwrap">
-    <a href="index.html" class="brand-mark" aria-label="Back to portfolio home">OI</a>
+    <a href="index.html#research" class="brand-mark" aria-label="Back to portfolio home">OI</a>
     <nav class="links" id="navLinks">
       <a href="index.html#about">About</a>
       <a href="index.html#experience">Experience</a>
@@ -459,8 +449,8 @@
 
 <section id="thermal" style="background:var(--paper-2);">
   <div class="wrap">
-    <span class="section-label">06 / Thermal · Concentrated solar</span>
-    <h2 class="section-title">A concentrated solar thermoelectric string, commissioned onto the live bus.</h2>
+    <span class="section-label">06 / Parabolic Dish CSP–TEG</span>
+    <h2 class="section-title">Parabolic Dish Concentrated Solar Power and Thermoelectric Generator Module in Array</h2>
     <div class="sld-rule"><span class="node"></span></div>
     <p>Parabolic dish concentrators reach focal temperatures above 500 °C, and thermoelectric modules convert that heat with no moving parts and no working fluid — at 2–5% efficiency, and only while a stable gradient holds. Building and commissioning this string completed the tri-source system.</p>
     <div class="facts">
@@ -471,11 +461,6 @@
         <div><dt>Power conditioning</dt><dd>Boost DC–DC converter onto the 24 V bus</dd></div>
       </dl>
     </div>
-    <ol class="decisions">
-      <li><strong>Parasitics sit inside the efficiency boundary.</strong> Cooling pump power counts against net output. This is the main reason published dish–TEG efficiencies overstate real performance, and a figure that excludes parasitics can't be used to size anything.</li>
-      <li><strong>Array topology follows the bus, not the module.</strong> Open-circuit voltage follows V = NαΔT, so series count is set by the converter's input window and the 24 V target — a source-to-bus integration problem before it is a materials problem.</li>
-      <li><strong>The instrumentation resolves gradient stability, not peak ΔT.</strong> The literature reports maximum temperature difference. Under real irradiance transients, the standard deviation of ΔT is what governs usable output and thermal stress on the ceramic substrates.</li>
-    </ol>
   </div>
 </section>
 
@@ -521,7 +506,7 @@
       Open to full-time roles in power systems engineering, grid reliability, and data center electrical infrastructure. Authorized to work in the U.S. without sponsorship and open to relocation.
     </p>
     <div class="contact-links">
-      <a href="index.html">← Back to portfolio</a>
+      <a href="index.html#research">← Back to portfolio</a>
       <a href="Ovis-Daniel-Irefu-CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
       <a href="mailto:ovisirefu@yahoo.com">Email</a>
       <a href="tel:+12144681382">+1 (214) 468-1382</a>
