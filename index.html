@@ -332,6 +332,25 @@
     .stats-strip{grid-template-columns:repeat(2,1fr);}
     .stat{border-bottom:1px solid #17573C;}
   }
+
+  /* ---------- Technical brief callout ---------- */
+  .brief-callout{
+    display:block; background:var(--white); border:1px solid var(--line);
+    border-left:3px solid var(--accent); border-radius:6px;
+    padding:24px 26px; margin:28px 0 34px; transition:transform .15s, box-shadow .15s;
+  }
+  .brief-callout:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(10,58,40,0.10);}
+  .bc-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--accent); background:#FCEBE1;
+    padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:12px;
+  }
+  .bc-title{display:block; font-size:18px; font-weight:700; color:var(--ink); line-height:1.3;}
+  .bc-desc{display:block; font-size:14.5px; color:var(--ink-soft); margin-top:8px; max-width:64ch;}
+  .bc-go{
+    display:inline-block; margin-top:14px; font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px; color:var(--green); border-bottom:1px solid var(--green); padding-bottom:2px;
+  }
 </style>
 </head>
 <body>
@@ -344,6 +363,7 @@
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#research">Research</a>
+      <a href="briefs.html">Technical Brief</a>
       <a href="#projects">Projects</a>
       <a href="#gallery">Gallery</a>
       <a href="#skills">Skills</a>
@@ -517,6 +537,13 @@
     <span class="section-label">04 / Research</span>
     <h2 class="section-title">Publications &amp; Conference Work</h2>
     <div class="sld-rule"><span class="node"></span></div>
+
+    <a href="briefs.html" class="brief-callout">
+      <span class="bc-tag">Technical Brief</span>
+      <span class="bc-title">Multi-Source Renewable Microgrid with Hybrid Energy Storage</span>
+      <span class="bc-desc">Three renewable sources on one 24&nbsp;V DC bus — 99.07% availability, 0.93% loss of power supply probability, 2.3M logged data points. Full results, one-line diagram and methodology.</span>
+      <span class="bc-go">Read the technical brief &rarr;</span>
+    </a>
 
     <div class="scholar-metrics">
       <div><span>28</span> citations</div>

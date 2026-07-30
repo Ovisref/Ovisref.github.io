@@ -357,7 +357,7 @@
   <div class="wrap">
     <span class="section-label">01 / Reliability · Source diversification</span>
     <h2 class="section-title">Diurnal resource complementarity governs availability more than installed capacity.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <p>Run in isolation, the wind turbine was the weakest asset on site — 17.79% availability in a low-wind window, well below rated output. Operated in parallel with solar on the same bus, it cut daily outage duration by 84%. The mechanism is temporal, not capacity-driven: it generated through the nocturnal window, when demand persisted and the solar resource did not.</p>
     <div class="panel">
       <div class="panel-cap">72-hour sequential test · constant design-basis load · identical conditions</div>
@@ -379,7 +379,7 @@
   <div class="wrap">
     <span class="section-label">02 / Contingency · N-1 validation</span>
     <h2 class="section-title">Redundancy tested by disconnecting live equipment, not by drawing it.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <p>Two independent PV nodes, deliberately built on different MPPT controllers, tied to a common bus with independent battery banks. I opened a node mid-afternoon under load and ran a five-day single-node contingency to establish whether the redundancy on the one-line was real.</p>
     <div class="panel">
       <div class="panel-cap">Staged outage scenarios</div>
@@ -400,7 +400,7 @@
   <div class="wrap">
     <span class="section-label">03 / Instrumentation · Data acquisition</span>
     <h2 class="section-title">Every result on this page rests on continuously logged site data.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <p>The testbed carries a co-located weather monitoring station alongside electrical logging on every source, so generation can be correlated against the resource that produced it rather than against a modelled or interpolated weather product.</p>
     <div class="facts">
       <dl class="facts-grid">
@@ -420,7 +420,7 @@
   <div class="wrap">
     <span class="section-label">04 / Forecasting · Dispatch</span>
     <h2 class="section-title">A five-hour forecast built from data the controllers were already logging.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <p>MPPT charge controllers record array voltage, input power, heatsink temperature and internal charge state every five minutes, and almost nobody uses it. I trained an encoder–decoder LSTM on that operational data rather than an external weather feed — no new hardware, no new vendor dependency.</p>
     <div class="panel">
       <div class="panel-cap">Forecast error · leave-one-block-out validation</div>
@@ -442,7 +442,7 @@
   <div class="wrap">
     <span class="section-label">05 / Asset health · Condition monitoring</span>
     <h2 class="section-title">Battery condition monitoring at 99.26% accuracy, with no added instrumentation.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <p>Impedance spectroscopy needs the bank offline. Coulomb counting drifts. Neither survives contact with a distributed installation. I trained a decision tree on 429,027 logged records drawn from two sites in different climates — UNT Discovery Park and an agricultural installation at New Mexico State — to predict charge state from telemetry the controller already produces.</p>
     <div class="facts">
       <dl class="facts-grid">
@@ -461,7 +461,7 @@
   <div class="wrap">
     <span class="section-label">06 / Thermal · Concentrated solar</span>
     <h2 class="section-title">A concentrated solar thermoelectric string, commissioned onto the live bus.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <p>Parabolic dish concentrators reach focal temperatures above 500 °C, and thermoelectric modules convert that heat with no moving parts and no working fluid — at 2–5% efficiency, and only while a stable gradient holds. Building and commissioning this string completed the tri-source system.</p>
     <div class="facts">
       <dl class="facts-grid">
@@ -483,21 +483,26 @@
   <div class="wrap">
     <span class="section-label">07 / Publications</span>
     <h2 class="section-title">Peer-reviewed output from this testbed.</h2>
-    <div class="sld-rule"><span class="node"></span><span class="node"></span><span class="node"></span></div>
+    <div class="sld-rule"><span class="node"></span></div>
     <div class="pub">
-      <span class="pub-status">Published</span>
+      <span class="pub-status">2026</span>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/406679529_Reliability_Assessment_of_a_Hybrid_PV-WT_Microgrid_Systems_for_Enhanced_Resilience" target="_blank" rel="noopener">Reliability Assessment of a Hybrid PV–WT Microgrid Systems for Enhanced Resilience</a></div>
+      <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2026</span>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/406670792_A_Sequence-To-Sequence_Deep_Learning_Model_for_Solar_Power_Forecasting_in_a_Microgrid_Using_Operational_Data" target="_blank" rel="noopener">A Sequence-to-Sequence Deep Learning Model for Solar Power Forecasting in a Microgrid Using Operational Data</a></div>
+      <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2026</span>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/406683113_IoT-Based_Real-Time_Monitoring_of_Remote_PV-WT_Hybrid_Microgrid_in_Denton_Texas" target="_blank" rel="noopener">IoT-Based Real-Time Monitoring of Remote PV-WT Hybrid Microgrid in Denton, Texas</a></div>
+      <div class="pub-meta">G. Ebiega, O. Irefu, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
+    </div>
+    <div class="pub">
+      <span class="pub-status">2025 · 1 citation</span>
       <div class="pub-title"><a href="https://doi.org/10.1109/DCAS65331.2025.11045467" target="_blank" rel="noopener">Reliability Analysis of a Dual Photovoltaic (PV) Microgrid: A Case Study on Renewable Power Sharing and Unplanned Outages</a></div>
-      <div class="pub-meta">IEEE Dallas Circuits and Systems Conference (DCAS) 2025 · DOI 10.1109/DCAS65331.2025.11045467</div>
-    </div>
-    <div class="pub">
-      <span class="pub-status">IEEE DCAS 2026</span>
-      <div class="pub-title">Reliability Assessment of a Hybrid PV–WT Microgrid System for Enhanced Resilience</div>
-      <div class="pub-meta">Experimental reliability and resilience evaluation · LPSP, LOLE, Battery Relief Factor</div>
-    </div>
-    <div class="pub">
-      <span class="pub-status">Deep learning</span>
-      <div class="pub-title">A Sequence-to-Sequence Deep Learning Model for Solar Power Forecasting in a Microgrid Using Operational Data</div>
-      <div class="pub-meta">Encoder–decoder LSTM on MPPT operational data · dispatch-level evaluation</div>
+      <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2025 IEEE 18th Dallas Circuits and Systems Conference (DCAS)</div>
     </div>
     <div class="pub">
       <span class="pub-status">Condition monitoring</span>
