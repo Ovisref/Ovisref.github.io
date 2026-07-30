@@ -14,6 +14,46 @@
 <meta name="twitter:title" content="Ovis Daniel Irefu — Power Systems Engineer">
 <meta name="twitter:description" content="Power Systems Engineer specializing in renewable energy integration, microgrids, and grid reliability. 10+ years utility distribution experience.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230A3A28'/%3E%3Crect x='6' y='6' width='52' height='52' rx='6' fill='none' stroke='%23F86A38' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='24' font-weight='700' fill='%23FF9A6E' text-anchor='middle'%3EOI%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ovis Daniel Irefu",
+  "url": "https://ovisref.github.io/",
+  "image": "https://ovisref.github.io/headshot.jpg",
+  "jobTitle": "Power Systems Engineer",
+  "description": "Power Systems Engineer specializing in renewable energy integration, microgrids, and grid reliability. 10+ years utility distribution experience. PhD Candidate, Electrical Engineering (Power Systems), University of North Texas.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Denton",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of North Texas"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Benin"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Federal University of Technology, Minna"
+    }
+  ],
+  "email": "mailto:ovisirefu@yahoo.com",
+  "telephone": "+1-214-468-1382",
+  "sameAs": [
+    "https://www.linkedin.com/in/ovis-irefu-1a438166",
+    "https://github.com/Ovisref",
+    "https://scholar.google.com/citations?user=VGdN7h0AAAAJ&hl=en&oi=ao",
+    "https://www.researchgate.net/profile/Ovis-Irefu",
+    "https://www.scopus.com/authid/detail.uri?authorId=58995775000"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -105,6 +145,13 @@
     opacity:.6; pointer-events:none;
   }
   .hero-inner{position:relative; z-index:2; padding-bottom:56px;}
+  .hero-flex{display:flex; align-items:flex-start; justify-content:space-between; gap:40px;}
+  .hero-text{flex:1; min-width:0;}
+  .hero-photo{flex:none;}
+  .hero-photo img{
+    width:150px; height:150px; border-radius:50%; object-fit:cover;
+    border:3px solid var(--accent); box-shadow:0 0 0 5px rgba(248,106,56,0.15);
+  }
   .eyebrow{
     font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.12em;
     text-transform:uppercase; color:var(--accent-light); margin-bottom:18px; display:block;
@@ -203,6 +250,8 @@
     color:var(--green); background:#E3F3EA; padding:3px 8px; border-radius:3px; display:inline-block; margin-bottom:8px;
   }
   .pub-title{font-size:15px; font-weight:600;}
+  .pub-title a{color:var(--ink); text-decoration:none; border-bottom:1px solid transparent;}
+  .pub-title a:hover{color:var(--green); border-bottom-color:var(--green);}
   .pub-meta{font-size:13px; color:var(--ink-soft); margin-top:4px;}
   .scholar-metrics{
     display:flex; gap:22px; flex-wrap:wrap; margin-bottom:24px;
@@ -239,6 +288,16 @@
   .cert-org{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
   .cert-id{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--accent); white-space:nowrap;}
 
+  /* ---------- Testimonials ---------- */
+  .testi-card{
+    background:var(--white); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:6px; padding:28px 30px; max-width:720px;
+  }
+  .testi-quote{font-size:16px; color:var(--ink); line-height:1.65; font-style:italic;}
+  .testi-attr{margin-top:18px; display:flex; align-items:center; gap:4px; flex-wrap:wrap;}
+  .testi-name{font-size:14px; font-weight:700;}
+  .testi-role{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+
   /* ---------- Footer / Contact ---------- */
   footer{
     background:var(--green-dark); color:#B9D6C5; padding:64px 0 40px;
@@ -255,6 +314,8 @@
   @media (max-width: 760px){
     nav.links{display:none;}
     .navtoggle{display:block;}
+    .hero-flex{flex-direction:column-reverse; align-items:center; text-align:center;}
+    .hero-flex .cred-row, .hero-flex .cta-row{justify-content:center;}
     .hero h1{font-size:32px;}
     .about-grid, .card-grid, .cert-grid, .gallery-grid{grid-template-columns:1fr;}
     .about-grid{gap:32px;}
@@ -277,6 +338,7 @@
       <a href="#gallery">Gallery</a>
       <a href="#skills">Skills</a>
       <a href="#certifications">Credentials</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="navtoggle" id="navToggle" aria-label="Toggle menu">☰</button>
@@ -285,18 +347,25 @@
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow">Power Systems Engineer — Renewable Energy &amp; Grid Reliability</span>
-    <h1>Ovis Daniel Irefu</h1>
-    <p class="lede">Power Systems Engineer with a strong academic foundation and 10+ years of experience across electricity distribution, substation operations, revenue protection, and microgrid project management. Now completing a PhD in Electrical Engineering (Power Systems) at the University of North Texas, pairing hands-on field leadership with peer-reviewed research in renewable integration, reliability, and forecasting.</p>
-    <div class="cred-row">
-      <span class="cred">PhD Candidate, EE (Power Systems) — Exp. Dec 2026</span>
-      <span class="cred">IEEE Graduate Member — PES</span>
-      <span class="cred">COREN Registered Engineer</span>
-      <span class="cred highlight">Authorized to work in the U.S. — no sponsorship required</span>
-    </div>
-    <div class="cta-row">
-      <a href="Ovis-Daniel-Irefu-CV.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download CV (PDF)</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    <div class="hero-flex">
+      <div class="hero-text">
+        <span class="eyebrow">Power Systems Engineer — Renewable Energy &amp; Grid Reliability</span>
+        <h1>Ovis Daniel Irefu</h1>
+        <p class="lede">Power Systems Engineer with a strong academic foundation and 10+ years of experience across electricity distribution, substation operations, revenue protection, and microgrid project management. Now completing a PhD in Electrical Engineering (Power Systems) at the University of North Texas, pairing hands-on field leadership with peer-reviewed research in renewable integration, reliability, and forecasting.</p>
+        <div class="cred-row">
+          <span class="cred">PhD Candidate, EE (Power Systems) — Exp. Dec 2026</span>
+          <span class="cred">IEEE Graduate Member — PES</span>
+          <span class="cred">COREN Registered Engineer</span>
+          <span class="cred highlight">Authorized to work in the U.S. — no sponsorship required</span>
+        </div>
+        <div class="cta-row">
+          <a href="Ovis-Daniel-Irefu-CV.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download CV (PDF)</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="headshot.jpg" alt="Ovis Daniel Irefu">
+      </div>
     </div>
   </div>
   <div class="stats-strip wrap" style="padding-left:0; padding-right:0; max-width:1040px; margin:0 auto;">
@@ -447,42 +516,42 @@
 
     <div class="pub">
       <span class="pub-status">2026</span>
-      <div class="pub-title">A Sequence-to-Sequence Deep Learning Model for Solar Power Forecasting in a Microgrid Using Operational Data</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/406670792_A_Sequence-To-Sequence_Deep_Learning_Model_for_Solar_Power_Forecasting_in_a_Microgrid_Using_Operational_Data" target="_blank" rel="noopener">A Sequence-to-Sequence Deep Learning Model for Solar Power Forecasting in a Microgrid Using Operational Data</a></div>
       <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
     </div>
     <div class="pub">
       <span class="pub-status">2026</span>
-      <div class="pub-title">Reliability Assessment of a Hybrid PV–WT Microgrid Systems for Enhanced Resilience</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/406679529_Reliability_Assessment_of_a_Hybrid_PV-WT_Microgrid_Systems_for_Enhanced_Resilience" target="_blank" rel="noopener">Reliability Assessment of a Hybrid PV–WT Microgrid Systems for Enhanced Resilience</a></div>
       <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
     </div>
     <div class="pub">
       <span class="pub-status">2026</span>
-      <div class="pub-title">IoT-Based Real-Time Monitoring of Remote PV-WT Hybrid Microgrid in Denton, Texas</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/406683113_IoT-Based_Real-Time_Monitoring_of_Remote_PV-WT_Hybrid_Microgrid_in_Denton_Texas" target="_blank" rel="noopener">IoT-Based Real-Time Monitoring of Remote PV-WT Hybrid Microgrid in Denton, Texas</a></div>
       <div class="pub-meta">G. Ebiega, O. Irefu, B. Smithers, M.F. Acevedo — 2026 IEEE 19th Dallas Circuits and Systems Conference (DCAS)</div>
     </div>
     <div class="pub">
       <span class="pub-status">2026</span>
-      <div class="pub-title">Experimental Evaluation and Analysis of the Impacts of Soiling on Polar-Mounted Photovoltaic (PV) Systems in Denton, Texas</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/404923738_Experimental_Evaluation_and_Analysis_of_the_Impacts_of_Soiling_on_Polar-Mounted_Photovoltaic_PV_Systems_in_Denton_Texas" target="_blank" rel="noopener">Experimental Evaluation and Analysis of the Impacts of Soiling on Polar-Mounted Photovoltaic (PV) Systems in Denton, Texas</a></div>
       <div class="pub-meta">G. Ebiega, O. Irefu, B. Smithers, M.F. Acevedo — 2026 IEEE Texas Power and Energy Conference (TPEC)</div>
     </div>
     <div class="pub">
       <span class="pub-status">2025 · 1 citation</span>
-      <div class="pub-title">Reliability Analysis of a Dual Photovoltaic (PV) Microgrid: A Case Study on Renewable Power Sharing and Unplanned Outages</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/393026471_Reliability_Analysis_of_a_Dual_Photovoltaic_PV_Microgrid_A_Case_Study_on_Renewable_Power_Sharing_and_Unplanned_Outages" target="_blank" rel="noopener">Reliability Analysis of a Dual Photovoltaic (PV) Microgrid: A Case Study on Renewable Power Sharing and Unplanned Outages</a></div>
       <div class="pub-meta">O. Irefu, G. Ebiega, B. Smithers, M.F. Acevedo — 2025 IEEE 18th Dallas Circuits and Systems Conference (DCAS)</div>
     </div>
     <div class="pub">
       <span class="pub-status">2024 · 10 citations</span>
-      <div class="pub-title">Design and Techno-Economic Evaluation of a Hybrid Mini-grid System for an Academic Institution</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/379533880_Design_and_Techno-Economic_Evaluation_of_a_Hybrid_Mini-grid_System_for_an_Academic_Institution" target="_blank" rel="noopener">Design and Techno-Economic Evaluation of a Hybrid Mini-grid System for an Academic Institution</a></div>
       <div class="pub-meta">M.T.Z. Zarmai, I. Alabi, O.D. Irefu, et al. — Journal of Energy and Power Technology, 6(2), 1–23</div>
     </div>
     <div class="pub">
       <span class="pub-status">2024 · 6 citations</span>
-      <div class="pub-title">Development of a PID-Controlled Refrigeration System for Reduced Power Consumption</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/385430635_Development_of_a_PID-Controlled_Refrigeration_System_for_Reduced_Power_Consumption" target="_blank" rel="noopener">Development of a PID-Controlled Refrigeration System for Reduced Power Consumption</a></div>
       <div class="pub-meta">S.J.F.L.O. Agidike, G.I. Ebiega, O. Irefu — World Journal of Advanced Research and Reviews, 24(1), 2435–2449</div>
     </div>
     <div class="pub">
       <span class="pub-status">2024</span>
-      <div class="pub-title">Hybrid Renewable/Grid Power Systems, an Essential for Base Transceiver Station Penetration in Rural Nigeria</div>
+      <div class="pub-title"><a href="https://www.researchgate.net/publication/379570820_Hybrid_renewablegrid_power_systems_an_essential_for_base_transceiver_station_penetration_in_Rural_Nigeria" target="_blank" rel="noopener">Hybrid Renewable/Grid Power Systems, an Essential for Base Transceiver Station Penetration in Rural Nigeria</a></div>
       <div class="pub-meta">G.I. Ebiega, T.M. Dugeri, O.D. Irefu — International Journal of Power Electronics and Drive Systems (IJPEDS), 15(2)</div>
     </div>
 
@@ -685,9 +754,26 @@
   </div>
 </section>
 
+<section id="testimonials" style="background:var(--paper-2);">
+  <div class="wrap">
+    <span class="section-label">09 / Testimonials</span>
+    <h2 class="section-title">What Colleagues Say</h2>
+    <div class="sld-rule"><span class="node"></span></div>
+    <div class="testi-card">
+      <p class="testi-quote">"Engr. Ovis is an intelligent colleague, a power systems expert with a robust knowledge of the electricity value chain. He is vast in both learning and exposure in electrical energy generation, transmission and distribution."</p>
+      <div class="testi-attr">
+        <div>
+          <div class="testi-name">Engr. Oluwatobi Daramola, MNSE, R.Eng</div>
+          <div class="testi-role">Electrical | Software Engineer | Machine Learning Enthusiast — worked with Ovis on the same team</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer id="contact">
   <div class="wrap">
-    <span class="section-label" style="color:var(--accent-light);">09 / Contact</span>
+    <span class="section-label" style="color:var(--accent-light);">10 / Contact</span>
     <h2 class="section-title">Let's connect</h2>
     <p style="max-width:560px; margin-top:14px; color:#B9D6C5; font-size:15px;">
       Open to full-time roles in power systems engineering, grid reliability, and data center electrical infrastructure. Authorized to work in the U.S. without sponsorship and open to relocation.
